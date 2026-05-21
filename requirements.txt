@@ -2,7 +2,6 @@ flask
 numpy
 pandas
 scikit-learn
-tensorflow
-matplotlib
+matplotlib==3.9.0
 joblib
 mlflow
