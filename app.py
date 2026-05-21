@@ -16,7 +16,7 @@ labels = {
 
 @app.route("/")
 def home():
-    return "Predictive Maintenance API Running"
+    return "CI/CD Pipeline Successfully Updated"
 
 @app.route("/predict", methods=["POST"])
 def predict():
