@@ -1,8 +1,10 @@
-flask
-numpy
-pandas
-scikit-learn
+
 matplotlib==3.9.0
 joblib
 mlflow
 gunicorn
+flask
+numpy
+pandas
+scikit-learn
+tensorflow
