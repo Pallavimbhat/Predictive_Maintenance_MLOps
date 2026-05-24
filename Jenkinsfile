@@ -5,7 +5,8 @@ pipeline {
 
         stage('Clone Repository') {
             steps {
-                git 'https://github.com/Pallavimbhat/Predictive_Maintenance_MLOps.git'
+                git branch: 'main',
+                url: 'https://github.com/Pallavimbhat/Predictive_Maintenance_MLOps.git'
             }
         }
 
