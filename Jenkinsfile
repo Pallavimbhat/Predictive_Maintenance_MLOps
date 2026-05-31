@@ -18,7 +18,7 @@ pipeline {
 
         stage('Run Docker Container') {
             steps {
-                bat 'docker run -d -p 5001:8080 predictive-maintenance'
+                bat 'docker run -d -p 5001:10000 predictive-maintenance'
             }
         }
     }
