@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 import joblib
 import os
 
@@ -17,18 +17,26 @@ labels = {
 
 @app.route("/")
 def home():
-    return "CI/CD Pipeline Successfully Updated"
+    return render_template("index.html")
 
-@app.route("/predict", methods=["POST"])
-def predict():
+@app.route("/predict-ui", methods=["POST"])
+def predict_ui():
 
-    data = request.json["features"]
+    data = [
+        float(request.form["f1"]),
+        float(request.form["f2"]),
+        float(request.form["f3"]),
+        float(request.form["f4"]),
+        float(request.form["f5"]),
+        float(request.form["f6"])
+    ]
 
     prediction = model.predict([data])[0]
 
-    return jsonify({
-        "prediction": labels[int(prediction)]
-    })
+    return render_template(
+        "index.html",
+        prediction=labels[int(prediction)]
+    )
 
 
 

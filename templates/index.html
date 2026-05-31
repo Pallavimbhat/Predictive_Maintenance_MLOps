@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Predictive Maintenance System</title>
+</head>
+<body>
+
+<h1>Predictive Maintenance System</h1>
+
+<form action="/predict-ui" method="post">
+
+<input type="number" step="any" name="f1" placeholder="Feature 1"><br><br>
+<input type="number" step="any" name="f2" placeholder="Feature 2"><br><br>
+<input type="number" step="any" name="f3" placeholder="Feature 3"><br><br>
+<input type="number" step="any" name="f4" placeholder="Feature 4"><br><br>
+<input type="number" step="any" name="f5" placeholder="Feature 5"><br><br>
+<input type="number" step="any" name="f6" placeholder="Feature 6"><br><br>
+
+<button type="submit">Predict</button>
+
+</form>
+
+<h2>{{ prediction }}</h2>
+
+</body>
+</html>
