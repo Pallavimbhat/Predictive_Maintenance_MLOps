@@ -2,25 +2,137 @@
 <html>
 <head>
     <title>Predictive Maintenance System</title>
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body{
+            min-height:100vh;
+            background:
+                linear-gradient(rgba(0,0,0,0.65),
+                rgba(0,0,0,0.65)),
+                url("https://images.unsplash.com/photo-1567789884554-0b844b597180?q=80&w=1920");
+            background-size:cover;
+            background-position:center;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+        }
+
+        .container{
+            width:500px;
+            padding:30px;
+            border-radius:15px;
+            backdrop-filter:blur(10px);
+            background:rgba(255,255,255,0.1);
+            box-shadow:0 8px 32px rgba(0,0,0,0.3);
+            color:white;
+
+            animation:fadeIn 1s ease;
+        }
+
+        h1{
+            text-align:center;
+            margin-bottom:25px;
+        }
+
+        input{
+            width:100%;
+            padding:12px;
+            margin:8px 0;
+            border:none;
+            border-radius:8px;
+            outline:none;
+            transition:0.3s;
+        }
+
+        input:focus{
+            transform:scale(1.03);
+            box-shadow:0 0 12px #00d4ff;
+        }
+
+        button{
+            width:100%;
+            padding:12px;
+            margin-top:15px;
+            border:none;
+            border-radius:8px;
+            background:#00bcd4;
+            color:white;
+            font-size:16px;
+            cursor:pointer;
+            transition:0.3s;
+        }
+
+        button:hover{
+            background:#0097a7;
+            transform:translateY(-2px);
+        }
+
+        .result{
+            margin-top:20px;
+            text-align:center;
+            font-size:24px;
+            font-weight:bold;
+            color:#00ff88;
+            animation:pulse 1s infinite alternate;
+        }
+
+        @keyframes fadeIn{
+            from{
+                opacity:0;
+                transform:translateY(20px);
+            }
+            to{
+                opacity:1;
+                transform:translateY(0);
+            }
+        }
+
+        @keyframes pulse{
+            from{
+                transform:scale(1);
+            }
+            to{
+                transform:scale(1.05);
+            }
+        }
+    </style>
 </head>
+
 <body>
 
-<h1>Predictive Maintenance System</h1>
+<div class="container">
 
-<form action="/predict-ui" method="post">
+    <h1>⚙ Predictive Maintenance System</h1>
 
-<input type="number" step="any" name="f1" placeholder="Feature 1"><br><br>
-<input type="number" step="any" name="f2" placeholder="Feature 2"><br><br>
-<input type="number" step="any" name="f3" placeholder="Feature 3"><br><br>
-<input type="number" step="any" name="f4" placeholder="Feature 4"><br><br>
-<input type="number" step="any" name="f5" placeholder="Feature 5"><br><br>
-<input type="number" step="any" name="f6" placeholder="Feature 6"><br><br>
+    <form method="POST">
 
-<button type="submit">Predict</button>
+        <input type="number" step="any" name="f1" placeholder="Feature 1" required>
+        <input type="number" step="any" name="f2" placeholder="Feature 2" required>
+        <input type="number" step="any" name="f3" placeholder="Feature 3" required>
+        <input type="number" step="any" name="f4" placeholder="Feature 4" required>
+        <input type="number" step="any" name="f5" placeholder="Feature 5" required>
+        <input type="number" step="any" name="f6" placeholder="Feature 6" required>
 
-</form>
+        <button type="submit">
+            Predict Machine Status
+        </button>
 
-<h2>{{ prediction }}</h2>
+    </form>
+
+    {% if prediction %}
+        <div class="result">
+            Prediction: {{ prediction }}
+        </div>
+    {% endif %}
+
+</div>
 
 </body>
 </html>
