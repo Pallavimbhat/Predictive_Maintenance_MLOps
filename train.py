@@ -174,6 +174,7 @@ with mlflow.start_run():
     # ============================================
 
     joblib.dump(fine_model, "rf_model.pkl")
+    joblib.dump(scaler, "scaler.pkl")
 
     rf_model_size = os.path.getsize("rf_model.pkl") / 1024
 

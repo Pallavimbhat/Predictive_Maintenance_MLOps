@@ -32,7 +32,6 @@
             background:rgba(255,255,255,0.1);
             box-shadow:0 8px 32px rgba(0,0,0,0.3);
             color:white;
-
             animation:fadeIn 1s ease;
         }
 
@@ -113,12 +112,17 @@
 
     <form action="/predict-ui" method="POST">
 
-        <input type="number" step="any" name="f1" placeholder="Feature 1" required>
-        <input type="number" step="any" name="f2" placeholder="Feature 2" required>
-        <input type="number" step="any" name="f3" placeholder="Feature 3" required>
-        <input type="number" step="any" name="f4" placeholder="Feature 4" required>
-        <input type="number" step="any" name="f5" placeholder="Feature 5" required>
-        <input type="number" step="any" name="f6" placeholder="Feature 6" required>
+        <input type="number" step="any" name="f1" placeholder="Type (0 = Low, 1 = Medium, 2 = High)" required>
+
+        <input type="number" step="any" name="f2" placeholder="Air Temperature [K]" required>
+
+        <input type="number" step="any" name="f3" placeholder="Process Temperature [K]" required>
+
+        <input type="number" step="any" name="f4" placeholder="Rotational Speed [rpm]" required>
+
+        <input type="number" step="any" name="f5" placeholder="Torque [Nm]" required>
+
+        <input type="number" step="any" name="f6" placeholder="Tool Wear [min]" required>
 
         <button type="submit">
             Predict Machine Status

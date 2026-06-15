@@ -5,6 +5,7 @@ import os
 app = Flask(__name__)
 
 model = joblib.load("rf_model.pkl")
+scaler = joblib.load("scaler.pkl")
 
 labels = {
     0: "Healthy",
@@ -31,7 +32,8 @@ def predict_ui():
         float(request.form["f6"])
     ]
 
-    prediction = model.predict([data])[0]
+    scaled_data = scaler.transform([data])
+    prediction = model.predict(scaled_data)[0]
 
     return render_template(
         "index.html",
